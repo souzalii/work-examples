@@ -4,7 +4,8 @@ This repository contains a collection of simple projects and scripts I have crea
 These projects are designed to demonstrate basic functionalities and provide helpful examples for common tasks.
 
 ## Contents
-- **Python Scripts**: Simple Python scripts for data manipulation, automation, and other basic tasks.
+- **Data Manipulation**: Simple Python scripts for data manipulation, automation, and other basic tasks.
+- **She Codes:** Challenges and projetos done for the Web Development course.
 
 ## Getting Started
 
