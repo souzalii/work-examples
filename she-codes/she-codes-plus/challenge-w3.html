@@ -75,12 +75,52 @@
             }            
             weekDays.forEach(listDays)          
         }
+
+        function objManipulation(){
+            //c1 - create an object
+            let weather = {};
+
+            //c2 - include properties
+            weather = {
+            temp: 19,
+            humidity: 50,
+            };
+
+            //c3 - access one property
+            console.log(weather.temp);
+            console.log(weather.humidity);
+
+            //c4 - add another property
+            weather.windSpeed = 3;
+
+            //c5 - console log using square brackets syntax
+            console.log(weather["temp"]);
+            //or 
+            console.log(
+            `The temperature is ${weather.temp}, the humidity is ${weather.humidity} and the wind speed is ${weather.windSpeed}.`
+            );
+
+            //c6 - an object/array with each day's temperature
+            let forecast = [
+            { day: "Sunday", temp: 30 },
+            { day: "Monday", temp: 25 },
+            { day: "Tuesday", temp: 22 },
+            { day: "Wednesday", temp: 21 },
+            { day: "Thursday", temp: 20 },
+            { day: "Friday", temp: 19 },
+            { day: "Saturday", temp: 22 },
+            ];
+            console.log(forecast);
+
+            console.log(`The temperature for tomorrow (${forecast[3].day}) will be ${forecast[3].temp}C`)
+        }
   
         //Functions to call
         //handleUserInput();
         //manipulateStrings();
         //performMathOperations();
-        usingArrayLoops();
+        //usingArrayLoops();
+        objManipulation();
         
     </script>
 </body>
