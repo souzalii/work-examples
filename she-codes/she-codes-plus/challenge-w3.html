@@ -115,12 +115,53 @@
             console.log(`The temperature for tomorrow (${forecast[3].day}) will be ${forecast[3].temp}C`)
         }
   
+        function arraysAndObject(){
+            let paris = {
+                name: "Paris",
+                country: "France",
+                language: "French",
+                temperature: 18,
+                capitalCity: true,
+            };
+
+            //c1 - console the temp of the given obj
+            console.log(paris.temperature);
+
+            //c2  -create another obj and log temp
+            let sydney = {
+                name: "Sydney",
+                country: "Australia",
+                language: "English",
+                temperature: 28,
+                capitalCity: false,
+            };
+            console.log(sydney.temperature);
+
+            //c3 - create an array with 3 cities and log each one
+            let cities = ["Perth", "Melbourne", "Brisbane"];
+            console.log(cities[0]);
+            console.log(cities[1]);
+            console.log(cities[2]);
+
+            //c4 - create array with city and temp and log
+            let citiesArray = [
+                { city: "New York", country: "USA", language: "English", temp: 19, capital:false,},
+                { city: "Cape Town", country: "South Africa", language: "English", temp: 25, capital:true,},
+                { city: "London", country: "UK", language: "English", temp: 9, capital:true,},
+            ];
+            console.log(
+            citiesArray[0].city,citiesArray[0].temp,"\n" + 
+            citiesArray[1].city,citiesArray[1].temp,"\n" + 
+            citiesArray[2].city,citiesArray[2].temp
+            );
+        }
         //Functions to call
         //handleUserInput();
         //manipulateStrings();
         //performMathOperations();
         //usingArrayLoops();
-        objManipulation();
+        //objManipulation();
+        arraysAndObject();
         
     </script>
 </body>
