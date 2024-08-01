@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheCodes Challenge</title>
+</head>
+<body>
+    <h1>SheCodes Challenge - Js Functions</h1>
+
+    <script>        
+        //js funcitons
+        function firstFunction(){            
+            function isWindy(){
+                alert("It is windy!")
+            }
+            isWindy();
+            isWindy();
+        }
+
+        //JS Functions Parameters
+        function jsParameters(){
+            // Challenge
+            // 1. Create a function isWindy
+            // 2. Add a speed parameter to the function
+            // 3. If speed is greater than 5, alert ‘It is windy’
+            // 4. Else, alert ‘It is not windy’
+            // 5. Call the function twice with different arguments to test both scenarios
+            function isWindy(speed) {
+            if (speed > 5) {
+                alert("Is is windy");
+            } else {
+                alert("It is not windy");
+            }
+            }
+
+            isWindy(1);
+            isWindy(100);
+            
+            let windy = prompt("What the wind speed?");
+            isWindy(windy);
+        };
+
+        function jsReturn(){
+            // Challenge 1
+            // 1. Modify the function is Windy and return true if the speed is greater than 5 and false if not
+            // 2. Call the function and alert ‘It is windy’ if it is windy, Else, alert ‘It is not windy’
+
+            function isWindy(speed) {
+                if (speed > 5) {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            let spped = 33;
+            if (isWindy(spped)) {
+                alert("It is windy");
+            } else {
+                alert("It is not windy");
+            }
+
+            // Challenge 2
+            // 1. Add unit parameter to isWindy
+            // 2. if greater than 5 and unit is metric, return true, else return false
+            // 3. Test both scenarios
+            // isWindy(2, 'imperial') should return false
+            // isWindy(20, 'metric') should return true
+            
+            function isWindyNew(speed, unit) {
+                if (speed > 5 & unit=="metric") {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            alert(isWindyNew(2, 'imperial'))
+            alert(isWindyNew(20, 'metric'))
+            alert(isWindyNew(5, 'metric'))
+        }
+        function jsDates(){
+            //c1 - Log the current date
+            let date = new Date();
+            console.log(date)
+
+            //c2 - Log the number of milliseconds in the current time
+            console.log(date.getMilliseconds())
+
+            //c3 - Log the current day ofthe week
+            console.log(date.getDay())
+            
+            //c4 - Log the current year
+            console.log(date.getFullYear())
+            
+            //c5 - Log the current month
+            console.log(date.getMonth())
+
+            //c3 - Display the current date following the following format: Today is Thursday, April 4, 2020
+            let namedayWeek = ["Sunday","Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+            let nameMonth = ["January","February","March", "April", "March", "June", "July", "August", "September", "October", "November", "December"]
+            console.log(`Today is ${namedayWeek[date.getDay()]}, ${nameMonth[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`)
+
+
+            //c7 - Create a function formatDate which returns a date following this format: Thursday, April 4, 2020 Call this function with the current time Log the result such as console.log(formatDate(new Date()));
+            function formatDate(fullDate){
+                let weekDay = fullDate.getDay();
+                let idxMonth = fullDate.getMonth();
+                let text = `Today is ${namedayWeek[weekDay]}, ${nameMonth[idxMonth]} ${fullDate.getDate()}, ${fullDate.getFullYear()}`
+                return text;
+            }
+            console.log(formatDate(new Date()));
+
+
+        }
+        function jsSelectors(){
+            // Challenge 1
+            // Log li with id special
+            let specialId = document.querySelector("#special");
+            console.log(specialId);
+
+            // Challenge 2
+            // Log all li with class of country
+            let country = document.querySelectorAll(".country");
+            console.log(country);
+
+            // Challenge 3
+            // Add class special to the li with id special
+            specialId.classList.add("special");
+
+            // Challenge 4
+            // In your code, replace the content of the element with id special
+            // by your favorite country (other than Portugal of course)
+            specialId.innesHTML = "Japan";
+
+        }
+        //firstFunction();
+        //jsParameters();
+        //jsReturn();
+        //jsDates();
+        jsSelectors();
+
+
+    </script>
+</body>
+</html>
+
