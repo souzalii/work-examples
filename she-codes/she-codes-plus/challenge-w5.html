@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SheCodes Plus</title>
+    <meta charset="UTF-8" />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>SheCodes Challenge - API</h1>
+
+    <script>
+        function firstAPI() {
+            let apiURL = "https://jsonplaceholder.typicode.com/comments";
+
+            function displayComments(response) {
+                //Given the API https://jsonplaceholder.typicode.com/, get the comments (/comments) and log the API response
+                console.log(response);
+                //Log the first comment email from the API response
+                console.log(response.data[0].email);
+            }
+            axios.get(apiURL).then(displayComments);
+        }
+        firstAPI();
+
+    </script>
+</body>
+
+</html>
