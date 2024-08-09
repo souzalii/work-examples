@@ -23,7 +23,25 @@
             }
             axios.get(apiURL).then(displayComments);
         }
-        firstAPI();
+        //firstAPI();
+
+        function usingAPIWeather(){
+            let key = "2fa4a0atfa4ff94791bo43444f20ff3a";
+            let city = "Sydney";
+            let unit = "metric";
+            let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=${unit}`;
+
+            function displayTemp(response) {
+                console.log(response);
+                console.log(response.data.temperature.current);
+                let temp = response.data.temperature.current;
+                let title = document.querySelector("h1");
+                title.innerHTML = `It is ${temp} degrees in ${city}`;
+            }
+            axios.get(apiURL).then(displayTemp);
+
+        }
+        usingAPIWeather();
 
     </script>
 </body>
