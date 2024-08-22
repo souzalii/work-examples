@@ -107,13 +107,10 @@ footer {
   line-height: 20px;
   margin-bottom: 10px;
 }
-.forecast-icon {
-  /*width: 88px;
-  height: 88px;
+.forecast-icon img {
+  height: 60px;
   display: block;
-  margin: 0 auto;*/
-  font-size: 38px;
-  text-align: center;
+  margin: 0 auto;
 }
 .forecast-temperatures {
   text-align: center;
