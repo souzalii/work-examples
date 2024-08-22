@@ -3,7 +3,7 @@ function getCity(event) {
   if (event) {
     event.preventDefault();
   }
-  
+
   // Capture the city value or use "Perth" as the default
   let cityInput = document.querySelector(".search-input").value || "Perth";
 
@@ -20,7 +20,7 @@ function buildAPIUrl(city) {
 }
 
 // Function to manipulate the API result and display the data
-function displayTemp(response) {  
+function displayTemp(response) {
   let tempValue = document.querySelector(".current-temperature-value");
   let cityText = document.querySelector(".current-city");
   let conditionValue = document.querySelector(".condition");
@@ -44,6 +44,26 @@ function displayTemp(response) {
   date.innerHTML = `${namedayWeek[newDate.getDay()]} ${newDate.getHours()}:${newDate.getMinutes()}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHTML = ""
+
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML + `
+    <div class="forecast-day">
+    <div class="forecast-date">${day}</div>
+    <div class="forecast-icon">☀️</div>
+    <div class="forecast-temperatures">
+      <div class="forecast-temperature"><strong>15°</strong></div>
+      <div class="forecast-temperature">9°</div>
+    </div>
+    </div>`;
+  })
+
+  forecastElement.innerHTML = forecastHTML
+}
+
 // Function to fetch data from the API
 function fetchWeatherData(apiURL) {
   axios.get(apiURL).then(displayTemp);
@@ -54,6 +74,8 @@ let searchForm = document.querySelector("#search");
 searchForm.addEventListener("submit", getCity);
 
 // Automatically execute with the default value "Perth" when the page loads
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   getCity();  // Initial call to load Perth's weather forecast when the page opens
 });
+
+displayForecast();
