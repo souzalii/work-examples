@@ -76,7 +76,6 @@ function displayTemp(response) {
 }
 
 function displayForecast(response) {
-  console.log(response.data)
   let forecastHTML = ""
 
   response.data.daily.forEach(function (day, index) {
@@ -103,5 +102,4 @@ function displayForecast(response) {
 let searchForm = document.querySelector("#search");
 searchForm.addEventListener("submit", getCity);
 
-// Automatically execute with the default value "Perth" when the page loads
-getCity();  // Initial call to load Perth's weather forecast when the page opens
+getCity();
