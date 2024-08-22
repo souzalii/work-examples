@@ -8,15 +8,24 @@ function getCity(event) {
   let cityInput = document.querySelector(".search-input").value || "Perth";
 
   // Build the API URL with the city and call the function to fetch the data
-  let apiURL = buildAPIUrl(cityInput);
-  fetchWeatherData(apiURL);
+  getCurrent(cityInput);
+  getForecast(cityInput)
+  
 }
 
 // Function to build the API URL
-function buildAPIUrl(city) {
+function getCurrent(city) {
   let key = "2fa4a0atfa4ff94791bo43444f20ff3a";
   let unit = "metric";
-  return `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=${unit}`;
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=${unit}`;
+  axios.get(apiURL).then(displayTemp);
+}
+
+function getForecast(city){
+  let key = "2fa4a0atfa4ff94791bo43444f20ff3a";
+  let unit = "metric";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=${unit}`;
+  axios.get(apiURL).then(displayForecast);
 }
 
 // Function to manipulate the API result and display the data
@@ -44,7 +53,8 @@ function displayTemp(response) {
   date.innerHTML = `${namedayWeek[newDate.getDay()]} ${newDate.getHours()}:${newDate.getMinutes()}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = ""
@@ -64,18 +74,9 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML
 }
 
-// Function to fetch data from the API
-function fetchWeatherData(apiURL) {
-  axios.get(apiURL).then(displayTemp);
-}
-
 // Add submit event to the form
 let searchForm = document.querySelector("#search");
 searchForm.addEventListener("submit", getCity);
 
 // Automatically execute with the default value "Perth" when the page loads
-document.addEventListener("DOMContentLoaded", function () {
-  getCity();  // Initial call to load Perth's weather forecast when the page opens
-});
-
-displayForecast();
+getCity();  // Initial call to load Perth's weather forecast when the page opens
